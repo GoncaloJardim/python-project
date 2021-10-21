@@ -1,32 +1,61 @@
 
 
-door_d = {
-    "name": "door d",
+
+
+#from pygame import mixer
+from pygame import mixer
+
+nundu_door = {
+    "name": "nundu door",
     "type": "door",
 }
-couch = {
-    "name": "couch",
+
+
+fenix_door = {
+    "name": "fenix door",
+    "type": "door",
+}
+wand = {
+    "name": "wand",
     "type": "furniture",
 }
 
-door_a = {
-    "name": "door a",
+dumbledore = {
+    "name": "dumbledore",
+    "type": "furniture",
+}    
+    
+
+
+snake_door = {
+    "name": "snake door",
     "type": "door",
 }
 
-key_a = {
-    "name": "key for door a",
+key_snake= {
+    "name": "key for snake door",
     "type": "key",
-    "target": door_a,
+    "target": snake_door,
 }
 
-piano = {
-    "name": "piano",
+pensieve = {
+    "name": "pensieve",
+    "type": "furniture"
+}
+spell={
+    "name":"\n \n Expectro patrono \n \n",
+    "type": "key",
+    "target":pensieve
+    
+}
+
+mirror_enrised = {
+    "name": "mirror enrised",
     "type": "furniture",
 }
 
-game_room = {
-    "name": "game room",
+hogwarts = {
+    "name": "hogwarts",
     "type": "room",
 }
 
@@ -36,78 +65,77 @@ outside = {
 
 #DEFINE BEDROOM1
 
-bedroom_1 = {
-    "name": "bedroom 1",
+azkaban = {
+    "name": "azkaban",
     "type": "room",
 }
 
-door_b = {
-    "name": "door b",
+dwarves_door = {
+    "name": "dwarves door",
     "type": "door",
 }
-door_c = {
-    "name": "door c",
+elfes_door = {
+    "name": "elfes door",
     "type": "door",
 }
 
-queen_bed = {
-    "name": "queen bed",
+weasley_clock = {
+    "name": "weasley clock",
     "type": "furniture",
 }
-key_b={
-    "name": "key for door b",
+key_dwarves={
+    "name": "key for dwarves door",
     "type": "key",
-    "target": door_b
+    "target": dwarves_door
 }
 
 
 
 #DEFINE BEDROOM2
 
-key_c = {
-    "name": "key for door c",
-    "type": "key",
-    "target": door_c,
-}
-key_d = {
-    "name": "key for door d",
-    "type": "key",
-    "target": door_d
-}
-double_bed = {
-    "name": "double bed",
+invisibility_cloak = {
+    "name": "invisibility cloak",
     "type": "furniture"
 }
-dresser = {
-    "name": "dresser",
+
+key_elfes = {
+    "name": "key for elfes door",
+    "type": "key",
+    "target": elfes_door,
+}
+
+key_fenix = {
+    "name": "key for fenix door",
+    "type": "key",
+    "target": fenix_door
+}
+portkey = {
+    "name": "portkey",
     "type": "furniture"
 }
-bedroom_2 = {
-    "name": "bedroom 2",
+
+diagon_alley = {
+    "name": "diagon alley",
     "type": "room",
 }
 
+key_nundu = {
+    "name": "key for nundu door",
+    "type": "key",
+    "target": nundu_door,
+}
+
+# define LIVINGROOM
 
 
-# Define LIVINGROOM
-
-
-dining_table = {
-    "name": "dining table",
+broonstick = {
+    "name": "broonstick",
     "type": "furniture",
 }
 
 
-
-key_d = {
-    "name": "key for door d",
-    "type": "key",
-    "target": door_d
-}
-
-
-living_room = {
-    "name": "living room",
+dumbledore_chamber = {
+    "name": "dumbledore chamber",
     "type": "room",
 }
 
@@ -115,28 +143,31 @@ outside = {
   "name": "outside"
 }
 
-all_rooms = [game_room, bedroom_1, bedroom_2, living_room,  outside]
+all_rooms = [hogwarts, azkaban, diagon_alley, dumbledore_chamber,  outside]
 
-all_doors = [door_a, door_b, door_c, door_c]
+all_doors = [snake_door, dwarves_door, elfes_door, nundu_door, fenix_door]
 
-# Define which items/rooms are related
+# define which items/rooms are related
 
 object_relations = {
-    "game room": [couch, piano, door_a],
-    "piano": [key_a],
-    "outside": [door_a],
-    "door a": [game_room, bedroom_1],
-    "queen bed":[key_b],
-    "door b":[bedroom_1, bedroom_2],
-    "door c":[bedroom_1, living_room],
-    "double bed":[key_c],
-    "dresser": [key_d],
-    "dinning table":[living_room],
-    "door d":[living_room, outside],
-    "bedroom 1":[queen_bed,door_a,door_b,door_c],
-    "bedroom 2":[double_bed,door_c,door_d,dresser,door_b],
-    "living room":[dining_table, door_c, door_d]
-    
+    "hogwarts": [dumbledore,wand, mirror_enrised, snake_door],
+    "mirror enrised": [key_snake],
+    "outside": [fenix_door],
+    "snake door": [hogwarts, azkaban],
+    #"snake door":[dumbledore_chamber],
+    "weasley clock":[key_dwarves],
+    "dwarves door":[azkaban, diagon_alley],
+    "elfes door":[azkaban, dumbledore_chamber],
+    "portkey":[key_elfes],
+    "pensieve": [key_fenix, spell],
+    "dinning table":[dumbledore_chamber],
+    "fenix door":[dumbledore_chamber, outside],
+    "azkaban":[weasley_clock,snake_door, dwarves_door, elfes_door],
+    "diagon alley":[portkey, dwarves_door, nundu_door, invisibility_cloak],
+    "dumbledore chamber":[broonstick, elfes_door, fenix_door,  pensieve],
+    "invisibility cloak":[key_nundu],
+    "nundu door":[diagon_alley, hogwarts],
+    "dumbledore":[spell,]
 }
    
 
@@ -148,9 +179,10 @@ object_relations = {
 # way you can replay the game multiple times.
 
 INIT_GAME_STATE = {
-    "current_room": game_room,
+    "current_room": hogwarts,
     "keys_collected": [],
-    "target_room": outside
+    "target_room": outside,
+
 }
 
 def linebreak():
@@ -163,22 +195,37 @@ def start_game():
     """
     Start the game
     """
+
+    # Starting the mixer
+    mixer.init()
+
+    # Loading the song
+    mixer.music.load("C:\\Users\\User\Desktop\\IronHack\\python-project\\your-code\\harry.mp3")
+
+    # Setting the volume
+    mixer.music.set_volume(0.7)
+
+    # Start playing the song
+    mixer.music.play()
+
     print(""" ************Welcome to Hogwards Escape Room*************
     
     Welcome to our new Hogwarts Escape Room! Before we begin our journey, we would like to say a few words...
     
     Choose wisely your paths and remember your spells... 
     """)
+
     play_room(game_state["current_room"])
 
 def play_room(room):
     """
     Play a room. First check if the room being played is the target room.
     If it is, the game will end with success. Otherwise, let player either 
-    explore (list all items in this room) or examine an item found here.
-    """
+    explore (list all items in this room) or examine an item found here."""
+
     game_state["current_room"] = room
     if(game_state["current_room"] == game_state["target_room"]):
+        mixer.music.pause()
         print("Congrats! You escaped the room!")
     else:
 #         if room["name"] == game_state["current_room"]:    
@@ -200,6 +247,7 @@ def play_room(room):
             examine_item(input(" \n What would you like to examine? \n").strip())
         else:
             print("\n That is a muggle error! You must only type either A or B.")
+
             play_room(room)
         linebreak()
 
@@ -209,6 +257,7 @@ def explore_room(room):
     """
     items = [i["name"] for i in object_relations[room["name"]]]
     print("\n You explore the room. This is " + room["name"] + ". You find these objects: \n- " + "\n- ".join(items))
+
 
 def get_next_room_of_door(door, current_room):
     """
@@ -237,7 +286,9 @@ def examine_item(item_name):
     
     for item in object_relations[current_room["name"]]:
         if(item["name"] == item_name):
+
             output = "\n You examine " + item_name + ". "
+
             if(item["type"] == "door"):
                 have_key = False
                 for key in game_state["keys_collected"]:
@@ -277,11 +328,31 @@ def examine_item(item_name):
         print("You must have eaten some Bertie Botts Beansb and are seeing things twisted. That item isn't in the current room.")
     
     if(next_room and input("Do you wish to go to another Hogwards room? Write 'yes' to enter  or write anything else to go to main menu.").strip().lower() == 'yes'):
+
         play_room(next_room)
     else:
         play_room(current_room)
         
-
 game_state = INIT_GAME_STATE.copy()
 
 start_game()
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
