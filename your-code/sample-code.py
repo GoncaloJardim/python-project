@@ -3,7 +3,8 @@
 
 
 #from pygame import mixer
-from pygame import mixer
+
+#from pygame import mixer
 
 nundu_door = {
     "name": "nundu door",
@@ -139,9 +140,6 @@ dumbledore_chamber = {
     "type": "room",
 }
 
-outside = {
-  "name": "outside"
-}
 
 all_rooms = [hogwarts, azkaban, diagon_alley, dumbledore_chamber,  outside]
 
@@ -153,8 +151,8 @@ object_relations = {
     "hogwarts": [dumbledore,wand, mirror_enrised, snake_door],
     "mirror enrised": [key_snake],
     "outside": [fenix_door],
-    "snake door": [hogwarts, azkaban],
-    #"snake door":[dumbledore_chamber],
+    #"snake door": [hogwarts, azkaban],
+    "snake door":[dumbledore_chamber],
     "weasley clock":[key_dwarves],
     "dwarves door":[azkaban, diagon_alley],
     "elfes door":[azkaban, dumbledore_chamber],
@@ -197,16 +195,16 @@ def start_game():
     """
 
     # Starting the mixer
-    mixer.init()
+    #mixer.init()
 
     # Loading the song
-    mixer.music.load("C:\\Users\\User\Desktop\\IronHack\\python-project\\your-code\\harry.mp3")
+    #mixer.music.load("C:\\Users\\User\Desktop\\IronHack\\python-project\\your-code\\harry.mp3")
 
     # Setting the volume
-    mixer.music.set_volume(0.7)
+    #mixer.music.set_volume(0.7)
 
     # Start playing the song
-    mixer.music.play()
+    #mixer.music.play()
 
     print(""" ************Welcome to Hogwards Escape Room*************
     
@@ -225,8 +223,9 @@ def play_room(room):
 
     game_state["current_room"] = room
     if(game_state["current_room"] == game_state["target_room"]):
-        mixer.music.pause()
+        #mixer.music.pause()
         print("Congrats! You escaped the room!")
+
     else:
 #         if room["name"] == game_state["current_room"]:    
 #         print("\n You are still in: " + room["name"])
@@ -244,7 +243,10 @@ def play_room(room):
             explore_room(room)
             play_room(room)
         elif choice.upper() == "B":
+            items = [i["name"] for i in object_relations[room["name"]]]
+            print("\n Remember you have this items in your room: \n \n"  , items)
             examine_item(input(" \n What would you like to examine? \n").strip())
+            
         else:
             print("\n That is a muggle error! You must only type either A or B.")
 
@@ -297,6 +299,7 @@ def examine_item(item_name):
                 if(have_key):
                     output += "You unlock it with a key you have."
                     next_room = get_next_room_of_door(item, current_room)
+                    
                 else:
                     output += "It is locked but you don't have the key."
             else:
@@ -309,6 +312,9 @@ def examine_item(item_name):
                     
 
             print(output)
+            #if(have_key):
+               # output += "You unlock it with a key you have."
+            #else:
             see_again= input(("""Do you wish to examine more things?
     
                        Y: To examine more things
@@ -317,7 +323,10 @@ def examine_item(item_name):
 
                        Please enter your choice: """))
             if see_again.upper() == 'Y':
+                #items = [i["name"] for i in current_room]
+                #print("\n Remember you have this items in your room: \n \n"  , items)
                 examine_item(input(" \n What would you like to examine? \n").strip()) 
+                
             elif see_again.upper() == 'N':
                 continue
             else:
