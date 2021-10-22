@@ -151,8 +151,8 @@ object_relations = {
     "hogwarts": [dumbledore,wand, mirror_enrised, snake_door],
     "mirror enrised": [key_snake],
     "outside": [fenix_door],
-    #"snake door": [hogwarts, azkaban],
-    "snake door":[dumbledore_chamber],
+    "snake door": [hogwarts, azkaban],
+    #"snake door":[dumbledore_chamber],
     "weasley clock":[key_dwarves],
     "dwarves door":[azkaban, diagon_alley],
     "elfes door":[azkaban, dumbledore_chamber],
@@ -195,15 +195,15 @@ def start_game():
     """
 
     # Starting the mixer
-    #mixer.init()
+#    mixer.init()
 
     # Loading the song
-    #mixer.music.load("C:\\Users\\User\Desktop\\IronHack\\python-project\\your-code\\harry.mp3")
+   # mixer.music.load("C:\\Users\\User\Desktop\\IronHack\\python-project\\your-code\\harry.mp3")
 
     # Setting the volume
     #mixer.music.set_volume(0.7)
 
-    # Start playing the song
+    #Start playing the song
     #mixer.music.play()
 
     print(""" ************Welcome to Hogwards Escape Room*************
@@ -323,6 +323,8 @@ def examine_item(item_name):
 
                        Please enter your choice: """))
             if see_again.upper() == 'Y':
+                list_to_show = [i["name"] for i in object_relations[current_room["name"]]]
+                print("\n Remember you have this items in your room: \n \n" , list_to_show)
                 #items = [i["name"] for i in current_room]
                 #print("\n Remember you have this items in your room: \n \n"  , items)
                 examine_item(input(" \n What would you like to examine? \n").strip()) 
